@@ -9,6 +9,12 @@ const IndexPage = () => {
         alt="Obi wan Kenobi"
         src="https://ichef.bbci.co.uk/news/704/cpsprodpb/11CFB/production/_117755927_obi-wan-kenobi-revenge-of-the-sith.jpg"
       />
+      <p> Obi Wan Kenobi, the Jedi that went through the most trials and remained on the Jedi way </p>
+      <StaticImage
+        alt="Master Chief"
+        src="../images/Halo-3-Master-Chief.jpg"
+        />
+      <p>Master Chief, one of, if not the most efficient, and effective, Super Soldier the UNSC has</p>
     </Layout>
   )
 }
