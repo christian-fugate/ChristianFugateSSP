@@ -1,9 +1,9 @@
 module.exports = {
     siteMetadata: {
-      title: `new`,
-        siteUrl: `https://www.yourdomain.tld`,
+      title: "ChristianFugateSSP",
     },
     plugins: [
-
-    ]
+        "gatsby-plugin-image",
+        "gatsby-plugin-sharp",
+    ],
 }
