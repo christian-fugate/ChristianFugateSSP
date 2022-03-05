@@ -7,7 +7,7 @@ const IndexPage = () => {
       <p>I'm making this by following the Gatsby Tutorial.</p>
       <StaticImage
         alt="Obi wan Kenobi"
-        src="https://ichef.bbci.co.uk/news/704/cpsprodpb/11CFB/production/_117755927_obi-wan-kenobi-revenge-of-the-sith.jpg"
+        src="../images/obi-wan.jpg"
       />
       <p> Obi Wan Kenobi, the Jedi that went through the most trials and remained on the Jedi way </p>
       <StaticImage
