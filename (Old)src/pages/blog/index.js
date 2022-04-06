@@ -1,7 +1,8 @@
 import * as React from 'react'
 import { Link, graphql } from 'gatsby'
 import Layout from '../../components/layout'
-
+import Pokedex from 'pokedex-promise-v2'
+const P = new Pokedex();
 
 const BlogPage = ({ data }) => {
 	return (

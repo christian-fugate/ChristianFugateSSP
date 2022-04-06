@@ -1,22 +1,61 @@
-import * as React from 'react'
-import Layout from '../components/layout'
-import { StaticImage } from 'gatsby-plugin-image'
-const IndexPage = () => {
-  return (
-    <Layout pageTitle="Home Page">
-      <p>I'm making this by following the Gatsby Tutorial.</p>
-      <StaticImage
-        alt="Obi wan Kenobi"
-        src="../images/obi-wan.jpg"
-      />
-      <p> Obi Wan Kenobi, the Jedi that went through the most trials and remained on the Jedi way </p>
-      <StaticImage
-        alt="Master Chief"
-        src="../images/Halo-3-Master-Chief.jpg"
-        />
-      <p>Master Chief, one of, if not the most efficient, and effective, Super Soldier the UNSC has</p>
-    </Layout>
-  )
-}
+import React, { useState } from 'react';
+import axios from "axios";
 
-export default IndexPage
+const IndexPage = () => {
+    const [pokemon, setPokemon] = useState("pikachu");
+    const [pokemonData, setPokemonData] = useState([]);
+    const [pokemonType, setPokemontType] = useState("");
+
+    const getPokmeon = async () => {
+        try {
+            const url = 'https://pokeapi.co/api/v2/poemon/${pokemon}';
+            const res = await axios.get(url);
+            toArray.push(res.data);
+            setPokemonType(res.data.types[0].type.name);
+            setPokemonData(toArray);
+            console.log(url);
+            console.log(res);
+        } catch (e) {
+            console.log(e);
+        }
+
+    };
+
+    const handleChange = (e) => {
+        setPokemon(e.target.value.toLowerCase())
+    }
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        getPokemon();
+    }
+    return (
+        <div className="IndexPage">
+            <form onSubmit={handleSubmit}>
+                <label>
+                    <input type="text"
+                        onChange={handleChange}
+                        placeholder="enter pokemon Name" />
+                </label>
+                </form>
+            {pokemonData.map((data) => {
+                return (
+                    <div className="container">
+                        <div className="divTable">
+                            <div className="divTableBody"></div>
+                            <div className="divTableRow">
+                                <div className="divTableCell">Type</div>
+                                <div className="divTableCell">{pokemonType}</div>
+                            </div>
+                            <div className="divTableRow">
+                                <div className="divTableCell">Height</div>
+                                <div className="divTableCell">{" "}{Math.round(data.height * 3.9)}</div>
+                            </div>
+                        </div>
+                    </div>
+                )
+            })}
+        </div>
+    );
+};
+
+export default IndexPage;
