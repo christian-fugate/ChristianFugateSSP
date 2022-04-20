@@ -8,3 +8,12 @@ const AboutPage = () => {
 	)
 }
 export default AboutPage
+
+{pokemonData.map((data) => {
+	return (
+		<div>
+			<div>Type</div>
+			<div>{pokemonType}</div>
+		</div>
+	)
+})}

@@ -1,0 +1,56 @@
+﻿.IndexPage{
+	margin:auto;
+	height: 250px;
+	text-align: center;
+	width: 75%;
+	background-color: rgb(231, 71, 8);
+}
+
+.container{
+	
+}
+.heading {
+	color: rebeccapurple;
+  }
+.site-title{
+	font-size: 3rem;
+	color: gray;
+	font-weight: 700;
+	margin: 3rem 0;
+}
+.list{
+	right: 16px;
+	top: 8px;
+	height: 500px;
+	width: 100px;
+	overflow: auto;
+
+}
+.image{
+	position: relative;
+	left: 50px;
+	max-width: fit-content;
+	background-color: white;
+	text-align: center;
+
+}
+.stats{
+	right: 0;
+}
+.Type{
+	position: relative;
+	
+}
+.heightWeight{
+	position:relative;
+	
+}
+.shinyButton{
+	right: 0px;
+}
+.maleFemalButton{
+	right: 0px;
+}
+.search{
+	right: 0px;
+}

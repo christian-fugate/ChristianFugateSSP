@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import axios from "axios";
+import '../components/pokedexLayout.css'
+//import * as d3 from 'd3';
 
 const IndexPage = () => {
     const [pokemon, setPokemon] = useState("pikachu");
@@ -14,9 +16,11 @@ const IndexPage = () => {
             toArray.push(res.data);
             setPokemonType(res.data.types[0].type.name);
             setPokemonData(toArray);
+            console.log(pokemonData)
             console.log(url);
             console.log(res.data.id)
-            console.log(pokemonData)
+            console.log(res.data)
+            console.log(res.data.stats[0].stat.name)
         } catch (e) {
             console.log(e);
         }
@@ -38,22 +42,25 @@ const IndexPage = () => {
                         onChange={handleChange}
                         placeholder="enter pokemon Name" />
                 </label>
-                </form>
+            </form>
+        
             {pokemonData.map((data) => {
                 return (
                     <div className="container">
-                        <div className="divTable">
-                            <div className="divTableBody"></div>
-                            <div className="divTableRow">
-                                <div className="divTableCell">Type</div>
-                                <div className="divTableCell">{pokemonType}</div>
-                            </div>
-                            <div className="divTableRow">
-                                <div className="divTableCell">Height</div>
-                                <div className="divTableCell">{" "}{Math.round(data.height * 3.9)}</div>
-                            </div>
+                        <div className='image'>
+                            <img src={data.sprites["front_default"]}/>
+                            <img src={data.sprites["back_default"]}/>
+                        <div className='Type'>
+                            <div>Type: {pokemonType}</div>
                         </div>
+                        <div className="heightWeight">
+                            <div> Height: {Math.round((data.height/10)*3.9)}"</div>
+                            <div> Weight: {((data.weight / 10)*2.2).toFixed(1)} lbs</div>
+                        </div>
+                        </div>
+                        
                     </div>
+                    
                 )
             })}
         </div>
