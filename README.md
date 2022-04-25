@@ -3,7 +3,6 @@ Dependencies
   NPM
   Axios
   Recharts
-  (Pie Charts is there because I didnt take it out before Pushing
   PokeApi
   
 To use:
