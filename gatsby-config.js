@@ -1,7 +1,7 @@
 module.exports = {
   pathPrefix: "/ChristianFugateSSP",
   siteMetadata: {
-    title: "My Super Cool Blog",
+    title: "Pokedex",
   },
   plugins: [
     "gatsby-plugin-image",
@@ -14,5 +14,5 @@ module.exports = {
       },
     },
     "gatsby-plugin-mdx",
-  ],
+  ]
 };

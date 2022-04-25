@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, PureComponent } from 'react';
 import axios from "axios";
-import '../components/pokedexLayout.css'
+import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer } from 'recharts';
+import '../components/pokedexLayout.css';
+import { PieChart } from 'react-minimal-pie-chart';
 //import * as d3 from 'd3';
 
 const IndexPage = () => {
@@ -43,28 +45,78 @@ const IndexPage = () => {
                         placeholder="enter pokemon Name" />
                 </label>
             </form>
+
+            
+            <div>
+                {pokemonData.map((data) => {
+                    return (
+                        <div>
+                            <div className='image'>
+                                <img src={data.sprites["front_default"]}/>
+                                <img src={data.sprites["back_default"]}/>
+                                
+                            </div>
+                            <div className='Type'>
+                                <div>Type: {pokemonType}</div>
+                                <div> Height: {Math.round((data.height/10)*3.9)}"</div>
+                                <div> Weight: {((data.weight / 10)*2.2).toFixed(1)} lbs</div>
+                            </div>
+                            <ResponsiveContainer width="50%" height="50%" className="radar">
+                            <RadarChart cx="50%" 
+                                        cy="50%"
+                                        outerRadius="80%" 
+                                        data={ 
+                                            [
+                                                {
+                                                    subject: "Special Attack",
+                                                    A:data.stats[3].base_stat,
+                                                    fullMark: 150,
+                                                  },
+                                                  {
+                                                    subject: 'Attack',
+                                                    A: data.stats[1].base_stat,
+                                                    
+                                                    fullMark: 150,
+                                                  },
+                                                  {
+                                                    subject: 'Defense',
+                                                    A: data.stats[2].base_stat,
+                                                    fullMark: 150,
+                                                  },
+                                                  {
+                                                    subject: 'Special Defense',
+                                                    A: data.stats[4].base_stat,
+                                                    fullMark: 150,
+                                                  },
+                                                  {
+                                                    subject: 'HP',
+                                                    A: data.stats[0].base_stat,
+                                                    fullMark: 150,
+                                                  },
+                                                  {
+                                                    subject: 'Speed',
+                                                    A: data.stats[5].base_stat,
+                                                    fullMark: 150,
+                                                  },
+                                            ]
+                                        }>
+                            <PolarGrid />
+                            <PolarAngleAxis dataKey="subject" />
+                            <PolarRadiusAxis />
+                            <Radar name="Mike" dataKey="A" stroke="#8884d8" fill="#8884d8" fillOpacity={0.6} />
+                            </RadarChart>
+                            </ResponsiveContainer>
+s                        </div>
+                    )
+                })}  
+            </div>
+            
+            
         
-            {pokemonData.map((data) => {
-                return (
-                    <div className="container">
-                        <div className='image'>
-                            <img src={data.sprites["front_default"]}/>
-                            <img src={data.sprites["back_default"]}/>
-                        <div className='Type'>
-                            <div>Type: {pokemonType}</div>
-                        </div>
-                        <div className="heightWeight">
-                            <div> Height: {Math.round((data.height/10)*3.9)}"</div>
-                            <div> Weight: {((data.weight / 10)*2.2).toFixed(1)} lbs</div>
-                        </div>
-                        </div>
-                        
-                    </div>
-                    
-                )
-            })}
         </div>
+        
     );
+    
 };
 
 export default IndexPage;

@@ -1,13 +1,19 @@
 ﻿.IndexPage{
 	margin:auto;
-	height: 250px;
-	text-align: center;
-	width: 75%;
+	height: 1000px;
 	background-color: rgb(231, 71, 8);
+	text-align: center;
 }
 
 .container{
-	
+	background-color: rgb(231, 71, 8);
+}
+.radar{
+	scale: 100%;
+	position: absolute;
+	left: 300px;
+	background-color:rgb(231, 71, 8);
+	z-index: 5;
 }
 .heading {
 	color: rebeccapurple;
@@ -16,7 +22,7 @@
 	font-size: 3rem;
 	color: gray;
 	font-weight: 700;
-	margin: 3rem 0;
+	margin: 3rem;
 }
 .list{
 	right: 16px;
@@ -24,25 +30,28 @@
 	height: 500px;
 	width: 100px;
 	overflow: auto;
-
 }
 .image{
-	position: relative;
-	left: 50px;
+	position: absolute;
+	top: 40px;
+	left: 40px;
+	scale: 125%;
 	max-width: fit-content;
-	background-color: white;
-	text-align: center;
+	background-color:  rgb(231, 71, 8);
 
-}
-.stats{
-	right: 0;
+	
 }
 .Type{
-	position: relative;
+	position: absolute;
+	top: 150px;
+	left: 20px;
+	text-align: left;
+	z-index: 0;
 	
 }
 .heightWeight{
-	position:relative;
+	position:absolute;
+	top: 30px;
 	
 }
 .shinyButton{
